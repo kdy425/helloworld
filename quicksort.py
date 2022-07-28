@@ -5,14 +5,17 @@ def quickSort(array):
     if len(array) <= 1:
         return array
     else:
-        #pivot = array[len(array) // 2]
-        pivot = array.pop()
+        pivot = array[len(array) // 2]
         left = []
         right = []
+        equal = []
         for i in array:
             if i < pivot:
                 left.append(i)
-            else:
+            elif i > pivot:
                 right.append(i)
-    return quickSort(left)+ [pivot] + quickSort(right)
+            else:
+                equal.append(i)
+    return quickSort(left)+ equal + quickSort(right)
+
 print(quickSort(array))
